@@ -1,16 +1,23 @@
 import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";
-import { icons, Icon } from "../icons";
+import * as Icons from "@storybook/icons";
 
 <Meta title="Tokens/Icons" />
 
-<Title>Iconography</Title>
+<Title>Icons</Title>
 These are the icons being used in our design system. They are available as React
 components.
 
 <IconGallery>
-  {icons.map((icon) => (
-    <IconItem key={icon} name={icon}>
-      <Icon type={icon} />
-    </IconItem>
-  ))}
+    {/* <IconItem name="ArrowDownIcon">
+        <Icons.ArrowDownIcon />
+    </IconItem> */}
+  
+  {
+    Object.entries(Icons).filter(([name]) => name !== 'iconList').map(([name, IconComponent]) => (
+      <IconItem key={name} name={name}>
+        <IconComponent />
+      </IconItem>
+    ))
+  }
+
 </IconGallery>

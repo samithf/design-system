@@ -11,6 +11,7 @@ const meta: Meta<typeof Button> = {
     intent: "primary",
     disabled: false,
     size: "medium",
+    type: "button",
   },
   argTypes: {
     children: {
@@ -32,6 +33,14 @@ const meta: Meta<typeof Button> = {
     size: {
       name: "Size",
       description: "Size of the button",
+      control: "radio",
+      table: {
+        category: "Appearance",
+      },
+    },
+    type: {
+      name: "Type",
+      description: "Type of button",
       control: "radio",
       table: {
         category: "Appearance",
@@ -72,5 +81,11 @@ export const Secondary: Story = {
 export const Destructive: Story = {
   args: {
     intent: "destructive",
+  },
+};
+
+export const Iconbutton: Story = {
+  args: {
+    type: "icon",
   },
 };

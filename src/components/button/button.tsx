@@ -23,7 +23,7 @@ export const button = cva(
     variants: {
       intent: {
         primary: [
-          "bg-primary-600",
+          "bg-primary-700",
           "text-white",
           "border-transparent",
           "hover:bg-primary-500",
@@ -49,17 +49,22 @@ export const button = cva(
         medium: ["text-sm", "px-2.5", "py-1.5"],
         large: ["text-sm", "px-3", "py-2"],
       },
+      type: {
+        button: "",
+        icon: ["px-0", "rounded-full"],
+      },
     },
     compoundVariants: [
       {
         intent: "primary",
         size: "small",
-        class: ["text-xs"],
+        class: ["uppercase"],
       },
     ],
     defaultVariants: {
       intent: "secondary",
       size: "medium",
+      type: "button",
     },
   }
 );
@@ -69,12 +74,14 @@ export const button = cva(
 type ButtonProps = ComponentProps<"button"> & {
   intent?: "primary" | "secondary" | "destructive";
   size?: "small" | "medium" | "large";
+  type?: "button" | "icon";
 };
 
 export function Button({
   intent = "primary",
   size = "medium",
+  type = "button",
   ...props
 }: ButtonProps) {
-  return <button className={button({ intent, size })} {...props} />;
+  return <button className={button({ intent, size, type })} {...props} />;
 }
