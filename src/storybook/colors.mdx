@@ -1,0 +1,26 @@
+import { Meta, ColorPalette, ColorItem, Title } from "@storybook/blocks";
+import colors from "tailwindcss/colors";
+
+<Meta title="Tokens/Colors" />
+<Title>Theme</Title>
+## Brand Colors
+<ColorPalette>
+  <ColorItem
+    title="Brand"
+    subtitle="Brand Colors"
+    colors={{
+      Subtle: "#a5b4fc",
+      Default: "#4f46e5",
+    }}
+  />
+</ColorPalette>
+
+## Tailwind Colors
+
+<ColorPalette>
+  {Object.entries(colors)
+    .filter(([, value]) => typeof value !== "string")
+    .map(([name, value]) => (
+      <ColorItem key={name} title={name} colors={value} />
+    ))}
+</ColorPalette>

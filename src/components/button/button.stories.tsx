@@ -4,16 +4,54 @@ import { Button } from "./button";
 type Story = StoryObj<typeof Button>;
 
 const meta: Meta<typeof Button> = {
-  title: "Button",
+  title: "Components/Button",
   component: Button,
   args: {
     children: "Button",
-    variant: "primary",
+    intent: "primary",
     disabled: false,
     size: "medium",
   },
   argTypes: {
-    disabled: { control: "boolean" },
+    children: {
+      name: "Label",
+      control: "text",
+      description: "Text to display on the button",
+      table: {
+        category: "Appearance",
+      },
+    },
+    intent: {
+      name: "Intent",
+      description: "Intent of the button",
+      control: "radio",
+      table: {
+        category: "Appearance",
+      },
+    },
+    size: {
+      name: "Size",
+      description: "Size of the button",
+      control: "radio",
+      table: {
+        category: "Appearance",
+      },
+    },
+    disabled: {
+      name: "Disabled",
+      control: "boolean",
+      description: "Disables the button",
+      table: {
+        defaultValue: {
+          summary: "false",
+          detail: "Defers to the built-in HTML attribute.",
+        },
+        category: "Accessibility",
+      },
+      //   table: {
+      //     disable: true,
+      //   },
+    },
   },
 };
 
@@ -21,18 +59,18 @@ export default meta;
 
 export const Primary: Story = {
   args: {
-    variant: "primary",
+    intent: "primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    variant: "secondary",
+    intent: "secondary",
   },
 };
 
 export const Destructive: Story = {
   args: {
-    variant: "destructive",
+    intent: "destructive",
   },
 };
